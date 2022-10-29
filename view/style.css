@@ -31,9 +31,28 @@ body {
     text-shadow: 0 0 5px #808080;
 }
 
+.fa-circle-xmark {
+    font-size: 3.25rem;
+    color: orangered;
+    text-shadow: 0 0 5px #808080;
+}
+
 .bird {
     letter-spacing: 1.2em;
     margin-left: 1em;
     font-weight: bold;
     color: #fff;
+}
+
+.bounce {
+    animation: bounce 1s infinite;
+}
+@keyframes bounce {
+    70% { transform:translateY(0%); }
+    80% { transform:translateY(-15%); }
+    90% { transform:translateY(0%); }
+    95% { transform:translateY(-7%); }
+    97% { transform:translateY(0%); }
+    99% { transform:translateY(-3%); }
+    100% { transform:translateY(0); }
 }

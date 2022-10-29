@@ -3,6 +3,7 @@ let currentBirdsIndex = 0;
 let firstOrLast = 0; //0 - trying to find first letter, 1 - trying to find last letter
 let currentBird;
 let h1 = document.getElementById('bird');
+let circle = document.getElementById('circle');
 
 setBird();
 showBird();
@@ -17,8 +18,11 @@ function logKey(e) {
         if (currentBird[0] === actualKey) {
             currentBird = currentBird.replaceAll(actualKey, '');
             showBird();
+            circle.classList.remove('fa-circle-xmark');
+            circle.classList.add('fa-circle-check');
         } else {
-            //pups-up decline
+            circle.classList.remove('fa-circle-check');
+            circle.classList.add('fa-circle-xmark');
             return;
         }
         firstOrLast = 1;
@@ -26,8 +30,11 @@ function logKey(e) {
         if (currentBird[currentBird.length - 1] === actualKey) {
             currentBird = currentBird.replaceAll(actualKey, '');
             showBird();
+            circle.classList.remove('fa-circle-xmark');
+            circle.classList.add('fa-circle-check');
         } else {
-            //pups-up decline
+            circle.classList.add('fa-circle-xmark');
+            circle.classList.add('fa-circle-xmark');
             return;
         }
         firstOrLast = 0;
