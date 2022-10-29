@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: linear-gradient(to right, #4666ff, #be2ed6) no-repeat;
+}
+
+.game-title {
+    color: #fff;
+    font-family: 'Dosis', sans-serif;
+}
+
+.card {
+    width: 18rem;
+    height: 8.5rem;
+}
+
+.fa-circle-check {
+    font-size: 3.25rem;
+    color: limegreen;
+    text-shadow: 0 0 5px #808080;
+}
+
+.bird {
+    letter-spacing: 1.2em;
+    margin-left: 1em;
+    font-weight: bold;
+    color: #fff;
+}
