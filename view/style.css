@@ -20,11 +20,6 @@ body {
     font-family: 'Dosis', sans-serif;
 }
 
-.card {
-    width: 18rem;
-    height: 8.5rem;
-}
-
 .fa-circle-check {
     font-size: 3.25rem;
     color: limegreen;
