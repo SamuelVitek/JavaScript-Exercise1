@@ -1,5 +1,6 @@
+//Set of birds and necessary attributes to manipulate them
 let birds = ['Sparrow', 'Peacock', 'Dove', 'Crow', 'Goose', 'Ostrich', 'Pigeon', 'Turkey'];
-let currentBirdsIndex = 0;
+let currentBirdsIndex = 0; //Helps with which bird should be shown
 let firstOrLast = 0; //0 - trying to find first letter, 1 - trying to find last letter
 let currentBird;
 let h1 = document.getElementById('bird');
@@ -8,18 +9,17 @@ let circle = document.getElementById('circle');
 setBird();
 showBird();
 
-document.addEventListener('keydown', logKey);
-
-function logKey(e) {
+/**
+ * On pressing a key window reacts
+ * It removes all occurrences of the letter in the birds name alternately from the beginning and from the end of the name
+ */
+document.addEventListener('keydown', function(e) {
     let actualKey = e.code.toUpperCase().substring(3);
 
     //If user is guessing first or last letter
     if (firstOrLast === 0) {
         if (currentBird[0] === actualKey) {
-            currentBird = currentBird.replaceAll(actualKey, '');
-            showBird();
-            circle.classList.remove('fa-circle-xmark');
-            circle.classList.add('fa-circle-check');
+            deleteLetterSuccess(actualKey)
         } else {
             circle.classList.remove('fa-circle-check');
             circle.classList.add('fa-circle-xmark');
@@ -28,17 +28,15 @@ function logKey(e) {
         firstOrLast = 1;
     } else {
         if (currentBird[currentBird.length - 1] === actualKey) {
-            currentBird = currentBird.replaceAll(actualKey, '');
-            showBird();
-            circle.classList.remove('fa-circle-xmark');
-            circle.classList.add('fa-circle-check');
+            deleteLetterSuccess(actualKey)
         } else {
-            circle.classList.add('fa-circle-xmark');
+            circle.classList.remove('fa-circle-check');
             circle.classList.add('fa-circle-xmark');
             return;
         }
         firstOrLast = 0;
     }
+
     //Move to other bird, if the string is empty
     if (currentBird === '') {
         currentBirdsIndex++;
@@ -47,6 +45,14 @@ function logKey(e) {
         showBird();
     }
 
+});
+
+//Removes the letter equal to the key from the birds name
+function deleteLetterSuccess(key) {
+    currentBird = currentBird.replaceAll(key, '');
+    showBird();
+    circle.classList.remove('fa-circle-xmark');
+    circle.classList.add('fa-circle-check');
 }
 
 //Rewrites the birds name on the page
